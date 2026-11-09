@@ -1,0 +1,1498 @@
+version: 2.1
+
+jobs:
+  teardown_loop:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage 4
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; echo owl swan horse | xargs -n1; true ; } > /tmp/dne/REnDeRcLiEnTrIDGe
+            echo "gate titan2-alpha: $(wc -c </tmp/dne/REnDeRcLiEnTrIDGe) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'REnDeRcLiEnTrIDGe'
+  titan2-alpha:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/REnDeRcLiEnTrIDGe
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  iriscodes:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: so like outline the privacy notice
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; function max { echo "[$(date +%T)] $*"; }; max "lorem ipsum dolor sit amet"; true ; } > /tmp/dne/r0u7er57one
+            echo "gate produce-staging-test-matrix: $(wc -c </tmp/dne/r0u7er57one) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'r0u7er57one'
+  produce-staging-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/glyph-cluster-valley-ledger
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  NO_CONST:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Dry the reagents with fresh tips
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; gzip -c /etc/hosts >"${TMPDIR:-/tmp}/pitch.gz" && zcmp /etc/hosts "${TMPDIR:-/tmp}/pitch.gz" && echo same; true ; } > /tmp/dne/theta.moor
+            echo "gate strated: $(wc -c </tmp/dne/theta.moor) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'theta.moor'
+  strated:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/theta.moor
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  choosehidden:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Go around on the whole company
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; echo -n "feed the cat" | wc -m; true ; } > /tmp/dne/NorThpIXelPEEr
+            echo "gate artifacts: $(wc -c </tmp/dne/NorThpIXelPEEr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'NorThpIXelPEEr'
+  artifacts:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/NorThpIXelPEEr
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  var-trace:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Over SSH batch the embedding table
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; grep -r umask /etc/skel | head -4; true ; } > /tmp/dne/atoll809
+            echo "gate xray-7: $(wc -c </tmp/dne/atoll809) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'atoll809'
+  xray-7:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/28.04.2020
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  tracef:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Sous vide the search index
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; cat /etc/hosts | grep -Hc local; true ; } > /tmp/dne/layer731
+            echo "gate assemble-end-to-end-regression-suite: $(wc -c </tmp/dne/layer731) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'layer731'
+  assemble-end-to-end-regression-suite:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/layer731
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  py-ubuntu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Ride forth and harden the latency budget
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; sort </etc/shells >/tmp/lizard.list && head -n3 /tmp/lizard.list; true ; } > /tmp/dne/quick
+            echo "gate VERIFY_PROD: $(wc -c </tmp/dne/quick) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'quick'
+  VERIFY_PROD:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/28.04.2020
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  ipIPArticle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: DO NOT skip the subscribers
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; cat /etc/profile | grep -o if; true ; } > /tmp/dne/PSqgeO
+            echo "gate INIT_STG: $(wc -c </tmp/dne/PSqgeO) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'PSqgeO'
+  INIT_STG:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/PSqgeO
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  FlatRayApi:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Loop the event stream
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; diff <(echo 'let'\''s go!') <(echo "what's next?") || echo differ; true ; } > /tmp/dne/0b877665-8318-6adc
+            echo "gate helios-alpha: $(wc -c </tmp/dne/0b877665-8318-6adc) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - '0b877665-8318-6adc'
+  helios-alpha:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/0b877665-8318-6adc
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  level-throne-shrink-daisy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Design old backup rename
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; cp /etc/passwd /tmp/primary.bak&& sed --in-place '/nologin$/d' /tmp/primary.bak&& cat /tmp/primary.bak; true ; } > /tmp/dne/Hf3
+            echo "gate sirius-rc: $(wc -c </tmp/dne/Hf3) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'Hf3'
+  sirius-rc:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/Hf3
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  jade229:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Embed event stream mk4
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; nl </etc/nsswitch.conf|sort -u|tail -5; true ; } > /tmp/dne/j1act8
+            echo "gate fix-login-glitch: $(wc -c </tmp/dne/j1act8) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'j1act8'
+  fix-login-glitch:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/j1act8
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  navsByName:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Randomize cutscene for pc
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -mindepth 1 -type d -name "user" -ls 2> /dev/null | awk -F/ '{print $NF}' | sort | uniq -c | sort -rn | head -n 5; true ; } > /tmp/dne/6rgsmhi0php
+            echo "gate CHECK_PROD: $(wc -c </tmp/dne/6rgsmhi0php) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - '6rgsmhi0php'
+  CHECK_PROD:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/6rgsmhi0php
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  soupZulu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage 4
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; ls /sys/class/net | awk '{print length, $0}' | nl | head -20; true ; } > /tmp/dne/batch7_faf6
+            echo "gate rc-v6: $(wc -c </tmp/dne/batch7_faf6) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'batch7_faf6'
+  rc-v6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/batch7_faf6
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  k4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: The loading bay is palletized on request
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; for i in {1..3}; do echo $i; done; true ; } > /tmp/dne/mgxxy
+            echo "gate tam-test: $(wc -c </tmp/dne/mgxxy) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'mgxxy'
+  tam-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/mgxxy
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  LANG_CA:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: evaluation IMPORTANT
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; ls /usr/share | awk '{print toupper(substr($0,1,1)) substr($0,2)}' | cat -n; true ; } > /tmp/dne/bLobbeTAsURge
+            echo "gate t-v2: $(wc -c </tmp/dne/bLobbeTAsURge) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'bLobbeTAsURge'
+  t-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/SPARK_REEF
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  peekTextAI:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Also rebuild the config map
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; df -i /tmp; true ; } > /tmp/dne/GrovEechOmOltEN
+            echo "gate anothr-run: $(wc -c </tmp/dne/GrovEechOmOltEN) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'GrovEechOmOltEN'
+  anothr-run:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/GrovEechOmOltEN
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  entrysOfUnion:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Run to prod
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; echo -n 'trailing spaces   ' | wc -w; true ; } > /tmp/dne/28.04.2020
+            echo "gate aug2-smoke: $(wc -c </tmp/dne/28.04.2020) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - '28.04.2020'
+  aug2-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/28.04.2020
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  X35:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: RTS from open
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; for entry in {0..4}; do sleep 0.1; echo "$entry"; done | wc -l; true ; } > /tmp/dne/stagedf1540
+            echo "gate Prepare_Suite4: $(wc -c </tmp/dne/stagedf1540) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'stagedf1540'
+  Prepare_Suite4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/glyph-cluster-valley-ledger
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  FORM:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Audit Courier Pickup Truck 15
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; echo 'ok' | od -An -tx1; true ; } > /tmp/dne/WAZaRF
+            echo "gate tb-3: $(wc -c </tmp/dne/WAZaRF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'WAZaRF'
+  tb-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/SPARK_REEF
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  strCtrl:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Wait for the tab bar to appear
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; len=plot.tar.gz && echo "${len~~}"; true ; } > /tmp/dne/exp4_2784
+            echo "gate v1-beta: $(wc -c </tmp/dne/exp4_2784) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'exp4_2784'
+  v1-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/exp4_2784
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  BundleRayCategory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Focus the dropdown and type
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 2 -type d -size 0 -exec basename '{}' \; 2> /dev/null | awk -F/ '{print $NF}'; true ; } > /tmp/dne/d3s3rt_pr0xy_z374_dr4f7
+            echo "gate UAT_CHECK_6: $(wc -c </tmp/dne/d3s3rt_pr0xy_z374_dr4f7) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'd3s3rt_pr0xy_z374_dr4f7'
+  UAT_CHECK_6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/SPARK_REEF
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  opt_bal_avg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Never skip masking
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; locale -a | grep -v '^[a-m]' | sort | uniq -c | sort -nr; true ; } > /tmp/dne/glyph-cluster-valley-ledger
+            echo "gate RolloutImage: $(wc -c </tmp/dne/glyph-cluster-valley-ledger) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'glyph-cluster-valley-ledger'
+  RolloutImage:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/glyph-cluster-valley-ledger
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  ramen_ash_emit_internal_yogurt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Could we playtest the fog volumes now
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; for elem in `seq 3`; do echo "${elem} squared is $((elem**2))"; done | wc -l; true ; } > /tmp/dne/TICKET_020999
+            echo "gate sirius-final: $(wc -c </tmp/dne/TICKET_020999) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'TICKET_020999'
+  sirius-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/TICKET_020999
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  uniColumn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Notifying the team roster in progress
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; find /var/log -maxdepth 3 \( -name "*.log" -o -name "*.1" \) -writable -exec ls -ld {} + 2>/dev/null | nl; true ; } > /tmp/dne/SPARK_REEF
+            echo "gate gating: $(wc -c </tmp/dne/SPARK_REEF) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'SPARK_REEF'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/SPARK_REEF
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  reduce_edgePrevious:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage 4
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; [ -x "$(command -v jq)" ] && echo executable || echo nope; true ; } > /tmp/dne/abfc64f3a879
+            echo "gate v2-edge1: $(wc -c </tmp/dne/abfc64f3a879) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'abfc64f3a879'
+  v2-edge1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/abfc64f3a879
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  m_classBtn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Replay review
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; echo "7 ** 7 = $((7 ** 7))"; true ; } > /tmp/dne/Crimson
+            echo "gate PrepareImage: $(wc -c </tmp/dne/Crimson) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'Crimson'
+  PrepareImage:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/glyph-cluster-valley-ledger
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  NecroBar:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Hush shrink wrap
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf 'home\t19\ndebug\t41\ncake\t60\naddon\t95\n' >/tmp/local-studio.txt && sort -k2 -n /tmp/local-studio.txt; true ; } > /tmp/dne/bramble
+            echo "gate anothr-run-74: $(wc -c </tmp/dne/bramble) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'bramble'
+  anothr-run-74:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/28.04.2020
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  feature-depth-map-tiny:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Slot 029 outline b
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; find /usr/share -maxdepth 3 -mindepth 1 -type f -perm 644 -exec ls -ld {} + 2>/dev/null | head -n1; true ; } > /tmp/dne/dat.usr
+            echo "gate q3-smoke: $(wc -c </tmp/dne/dat.usr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'dat.usr'
+  q3-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/glyph-cluster-valley-ledger
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  experimental-word:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Skip backup if the slow query log is empty
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf 'a\n\n\nb\n' > "/tmp/strategyreport2.conf" && cat -b "/tmp/strategyreport2.conf"; true ; } > /tmp/dne/cfgtxt
+            echo "gate API-660: $(wc -c </tmp/dne/cfgtxt) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'cfgtxt'
+  API-660:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/cfgtxt
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+  us_btn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Later brief the account managers
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; ( set -o pipefail; grep -c root /etc/passwd | tee "/tmp/pin-scratch-sandbox.bak" ) && cat "/tmp/pin-scratch-sandbox.bak"; true ; } > /tmp/dne/fnv_cd6394dff58386
+            echo "gate q1-smoke: $(wc -c </tmp/dne/fnv_cd6394dff58386) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'fnv_cd6394dff58386'
+  q1-smoke:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Read fixture
+          command: |
+            cat /tmp/dne/fnv_cd6394dff58386
+      - run:
+          name: Download source
+          command: git clone --depth 2 -q --no-single-branch --filter=tree:0 https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: zcat stage-static-stage.tgz | tar xf -
+      - run:
+          command: "./render-rc2"
+
+  report-2015:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Undo imputation
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf "%s\n" thursday friday sunday wednesday | sort; true ; } > /tmp/dne/GrovEechOmOltEN
+            echo "gate anothr-run: $(wc -c </tmp/dne/GrovEechOmOltEN) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'GrovEechOmOltEN'
+  ms_arg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Closing retag
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf 'name,city,score\nnoah,boston,78\nivy,prague,56\nnina,denver,100\nsara,hanoi,77\n' >'/tmp/ticket2.tsv' && grep -c , '/tmp/ticket2.tsv'; true ; } > /tmp/dne/TICKET_020999
+            echo "gate sirius-final: $(wc -c </tmp/dne/TICKET_020999) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'TICKET_020999'
+  Global-Pointer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Block 17 shard the batch size
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf 'name,city,score\ncarol,perth,47\nbob,boston,43\neva,hanoi,62\nquinn,dublin,70\n' >'/tmp/mountain-sales.tsv' && tail -n +2 '/tmp/mountain-sales.tsv' | wc -l; true ; } > /tmp/dne/exp4_2784
+            echo "gate v1-beta: $(wc -c </tmp/dne/exp4_2784) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'exp4_2784'
+  iDisabled:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: misc
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'ready?' | cut -c1-3; true ; } > /tmp/dne/mgxxy
+            echo "gate tam-test: $(wc -c </tmp/dne/mgxxy) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'mgxxy'
+  mrSullivan:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage 4
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; mkfifo "/var/tmp/app-server.md" && ls -l "/var/tmp/app-server.md" && rm "/var/tmp/app-server.md"; true ; } > /tmp/dne/abfc64f3a879
+            echo "gate v2-edge1: $(wc -c </tmp/dne/abfc64f3a879) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'abfc64f3a879'
+  idx_ReceiptNodeOption8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: ClickStreamEmbedding
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; head -n 4 /etc/passwd | cut -d ':' -f 1 | tac; true ; } > /tmp/dne/PSqgeO
+            echo "gate INIT_STG: $(wc -c </tmp/dne/PSqgeO) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'PSqgeO'
+  jm18cavfmnvwx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Promotion Limit 500
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; find /opt -maxdepth 2 -type l -name \* -size +10k -executable -exec stat -c %F '{}' \; 2>/dev/null | awk -F/ '{print $NF}'; true ; } > /tmp/dne/layer731
+            echo "gate assemble-end-to-end-regression-suite: $(wc -c </tmp/dne/layer731) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'layer731'
+  let-deploy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Hop 31 read
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; echo 'the quick brown fox' | sha256sum | cut -c1-16; true ; } > /tmp/dne/fnv_cd6394dff58386
+            echo "gate q1-smoke: $(wc -c </tmp/dne/fnv_cd6394dff58386) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'fnv_cd6394dff58386'
+  scan_open:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: Announce the reviewers
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; cp -p /etc/hosts "/tmp/my-report.txt" && ls -l --time-style=+%F /etc/hosts "/tmp/my-report.txt"; true ; } > /tmp/dne/theta.moor
+            echo "gate strated: $(wc -c </tmp/dne/theta.moor) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'theta.moor'
+  qRot:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: 30x labeling
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; ls -A|awk 'NR % 3 == 0'; true ; } > /tmp/dne/NorThpIXelPEEr
+            echo "gate artifacts: $(wc -c </tmp/dne/NorThpIXelPEEr) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'NorThpIXelPEEr'
+  AccountPinHidden:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: April reconcile
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; ls -spF /usr/local | sed -n '1~2p'; true ; } > /tmp/dne/j1act8
+            echo "gate fix-login-glitch: $(wc -c </tmp/dne/j1act8) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'j1act8'
+  onspawn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/dne
+      - run:
+          name: The subscribers get emailed
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'version 2.0' | tr ' ' '\n' | sort; true ; } > /tmp/dne/6rgsmhi0php
+            echo "gate CHECK_PROD: $(wc -c </tmp/dne/6rgsmhi0php) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - '6rgsmhi0php'
+  recordPx:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Stage 4
+          command: |
+            mkdir -p /tmp/dne
+            { set +o pipefail 2>/dev/null; cp /etc/hosts "/tmp/flight-outer.txt" && sed -i.orig '1i # managed by hand' "/tmp/flight-outer.txt" && grep -c . "/tmp/flight-outer.txt"; true ; } > /tmp/dne/REnDeRcLiEnTrIDGe
+            echo "gate titan2-alpha: $(wc -c </tmp/dne/REnDeRcLiEnTrIDGe) bytes total"
+      - persist_to_workspace:
+          root: /tmp/dne
+          paths:
+            - 'REnDeRcLiEnTrIDGe'
+workflows:
+  main:
+    jobs:
+      - entrysOfUnion
+      - NecroBar
+      - var-trace
+      - aug2-smoke:
+          requires:
+            - entrysOfUnion
+            - NecroBar
+            - var-trace
+      - anothr-run-74:
+          requires:
+            - entrysOfUnion
+            - NecroBar
+            - var-trace
+      - xray-7:
+          requires:
+            - entrysOfUnion
+            - NecroBar
+            - var-trace
+      - VERIFY_PROD:
+          requires:
+            - entrysOfUnion
+            - NecroBar
+            - var-trace
+      - uniColumn
+      - BundleRayCategory
+      - gating:
+          requires:
+            - uniColumn
+            - BundleRayCategory
+      - UAT_CHECK_6:
+          requires:
+            - uniColumn
+            - BundleRayCategory
+      - t-v2:
+          requires:
+            - uniColumn
+            - BundleRayCategory
+      - tb-3:
+          requires:
+            - uniColumn
+            - BundleRayCategory
+      - opt_bal_avg
+      - iriscodes
+      - feature-depth-map-tiny
+      - RolloutImage:
+          requires:
+            - opt_bal_avg
+            - iriscodes
+            - feature-depth-map-tiny
+      - produce-staging-test-matrix:
+          requires:
+            - opt_bal_avg
+            - iriscodes
+            - feature-depth-map-tiny
+      - q3-smoke:
+          requires:
+            - opt_bal_avg
+            - iriscodes
+            - feature-depth-map-tiny
+      - PrepareImage:
+          requires:
+            - opt_bal_avg
+            - iriscodes
+            - feature-depth-map-tiny
+      - Prepare_Suite4:
+          requires:
+            - opt_bal_avg
+            - iriscodes
+            - feature-depth-map-tiny
+      - experimental-word
+      - API-660:
+          requires:
+            - experimental-word
+      - level-throne-shrink-daisy:
+          requires:
+            - experimental-word
+      - sirius-rc:
+          requires:
+            - level-throne-shrink-daisy
+      - soupZulu:
+          requires:
+            - level-throne-shrink-daisy
+      - rc-v6:
+          requires:
+            - soupZulu
+      - FlatRayApi:
+          requires:
+            - soupZulu
+      - helios-alpha:
+          requires:
+            - FlatRayApi
+      - peekTextAI
+      - report-2015:
+          requires:
+            - peekTextAI
+      - anothr-run:
+          requires:
+            - report-2015
+      - ramen_ash_emit_internal_yogurt:
+          requires:
+            - report-2015
+      - ms_arg:
+          requires:
+            - ramen_ash_emit_internal_yogurt
+      - sirius-final:
+          requires:
+            - ms_arg
+      - strCtrl:
+          requires:
+            - ms_arg
+      - Global-Pointer:
+          requires:
+            - strCtrl
+      - v1-beta:
+          requires:
+            - Global-Pointer
+      - k4:
+          requires:
+            - Global-Pointer
+      - iDisabled:
+          requires:
+            - k4
+      - tam-test:
+          requires:
+            - iDisabled
+      - reduce_edgePrevious:
+          requires:
+            - iDisabled
+      - mrSullivan:
+          requires:
+            - reduce_edgePrevious
+      - v2-edge1:
+          requires:
+            - mrSullivan
+      - ipIPArticle:
+          requires:
+            - mrSullivan
+      - idx_ReceiptNodeOption8:
+          requires:
+            - ipIPArticle
+      - INIT_STG:
+          requires:
+            - idx_ReceiptNodeOption8
+      - tracef:
+          requires:
+            - idx_ReceiptNodeOption8
+      - jm18cavfmnvwx:
+          requires:
+            - tracef
+      - assemble-end-to-end-regression-suite:
+          requires:
+            - jm18cavfmnvwx
+      - us_btn
+      - let-deploy:
+          requires:
+            - us_btn
+      - q1-smoke:
+          requires:
+            - let-deploy
+      - NO_CONST:
+          requires:
+            - let-deploy
+      - scan_open:
+          requires:
+            - NO_CONST
+      - strated:
+          requires:
+            - scan_open
+      - choosehidden:
+          requires:
+            - scan_open
+      - qRot:
+          requires:
+            - choosehidden
+      - artifacts:
+          requires:
+            - qRot
+      - jade229:
+          requires:
+            - qRot
+      - AccountPinHidden:
+          requires:
+            - jade229
+      - fix-login-glitch:
+          requires:
+            - AccountPinHidden
+      - navsByName:
+          requires:
+            - AccountPinHidden
+      - onspawn:
+          requires:
+            - navsByName
+      - CHECK_PROD:
+          requires:
+            - onspawn
+      - teardown_loop:
+          requires:
+            - onspawn
+      - recordPx:
+          requires:
+            - teardown_loop
+      - titan2-alpha:
+          requires:
+            - recordPx
